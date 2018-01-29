@@ -27,6 +27,7 @@ We selected cordova as the core mobile platform due to app's workflow being able
 Framework7 UI framework provides the look and feel of both the IOs and Andriod Material Design (as of 2018), which makes it an deployment in terms of UI as very easy task.
  
  Although Cordova is a limited platform compared to native development, the app workflow is within the boundary of cordova's limitations
+ 
  ### Mobile Features In Development
  - Multiplatform Deployment
  - Edit/View Personnel Details
@@ -36,8 +37,39 @@ Framework7 UI framework provides the look and feel of both the IOs and Andriod M
  - District Projects
  - Cluster Projects
  - Alerts
+ 
+ ### Installation and Running
+ 
+ First download or clone this entire repo or if you only want the mobile app then rotaract mobile app folder
+ 
+ `
+ git clone https://github.com/voxsar/rotaract3220App.git
+ `
+ 
+ Ensure that you have NPM Installed before running these applications and Cordova as well
+ To run the mobile application in a V8 Browser (debug testing)
+ 
+ `
+ cordova run browser
+ `
+ 
+ If you want to perform continous updates and reflect changes use the live reload option (uses a cordova plugin)
+ 
+ `
+ cordova run browser -- --live-reload
+ `
+ Note that once the live reload is run, the command line will not stop running and showing updates of changed files
+ 
+ To add new platforms to the build you must use the add platform command, currently the android platform is operational
+ `
+ cordova add platform android
+ `
+ 
  ## Web Server
  The web server will host the the central commucation hub for all platforms mobile and handle requests from District and Club Coordinates specfic calls and client side calls, alerts etc
  It will also maintain the system logs for all the applicaition calls
+ 
+ There is no command line commands to run this, simply copy the server into the apache public html folder and connect the database by config.php to a stable MySQL server
+ 
  ### Server API
 JSON API is how the application communicates information between the server and mobile application
