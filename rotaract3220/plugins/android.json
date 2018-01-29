@@ -1,0 +1,24 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "org.rotaract3220.app"
+    },
+    "cordova-plugin-browsersync": {
+      "PACKAGE_NAME": "org.rotaract3220.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "org.rotaract3220.app"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "org.rotaract3220.app"
+    }
+  },
+  "dependent_plugins": {}
+}
