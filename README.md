@@ -58,6 +58,7 @@ Framework7 UI framework provides the look and feel of both the IOs and Andriod M
  `
  cordova run browser -- --live-reload
  `
+ 
  Note that once the live reload is run, the command line will not stop running and showing updates of changed files
  
  To add new platforms to the build you must use the add platform command, currently the android platform is operational
