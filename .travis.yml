@@ -30,6 +30,10 @@ matrix:
         - sudo cordova build android --release
       release:
         - exit 0
+      before_deploy:
+        - git config --local user.name "voxsar"
+        - git config --local user.email "vo.x@outlook.com"
+        - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)
       deploy:
         provider: releases
         skip-cleanup: true
@@ -61,6 +65,10 @@ matrix:
         - sudo cordova build ios --release --no-insight
       release:
         - exit 0
+      before_deploy:
+        - git config --local user.name "voxsar"
+        - git config --local user.email "vo.x@outlook.com"
+        - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)
       deploy:
         provider: releases
         skip-cleanup: true
