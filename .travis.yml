@@ -16,7 +16,7 @@ matrix:
         - sudo n stable
         #- cordova build
       script:
-        - sudo cordova platform add ios
+        - echo y | sudo cordova platform add ios
         - sudo cordova prepare
         - sudo cordova build ios --release
 notifications:
