@@ -11,16 +11,20 @@ sudo: true
 branches:
   only:
   - master
+  
+android:
+  components:
+    - build-tools-25.0.2
 
 install:
   - cd rotaract3220
   - sudo apt-get install npm
-  - sudo apt-get install nodejs-legacy
   - sudo npm install
   - sudo npm cache clean
   - sudo npm install -g cordova
   - echo y | android update sdk -u --filter android-22,android-23
   - ls
+  - ln -s /usr/bin/nodejs /usr/bin/node
   - cordova platform remove android
   - cordova platform add android
   - cordova prepare
