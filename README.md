@@ -1,4 +1,4 @@
-# Rotaract 3220 District App [![Build Status](https://travis-ci.org/electron/electron-apps.svg?branch=master)](https://travis-ci.org/electron/electron-apps)
+# Rotaract 3220 District App [![Build Status](https://travis-ci.org/voxsar/rotaract3220App.svg?branch=master)](https://travis-ci.org/voxsar/rotaract3220App)
 The Rotaract 3220 App that is started during DRR Shakthi's Year (2015/16) and Continued during DRR Husni's year (2016/17), it has been continued as a pet project during the 2017/18.
 
 Its goal is to provide the Rotaractors of the District with a two way communication tool and a hierarchical communication platform.
