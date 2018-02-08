@@ -27,11 +27,7 @@ install:
   - sudo npm cache clean -f
   - sudo npm install -g n
   - sudo n stable
-  - ls
- #- node -v
-  - which node
-  - sudo ln -s /usr/bin/nodejs /usr/bin/node
-  # cordova build
+  - cordova build
   
 script:
   - sudo cordova prepare
