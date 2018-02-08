@@ -29,6 +29,23 @@ matrix:
         - sudo cordova build android --release
       release:
         - exit 0
+      -language: objective-c
+      os: osx
+      osx_image: xcode9.2
+      install:
+        - sudo apt-get install npm
+        - sudo apt-get install node
+        - cd rotaract3220
+        - sudo npm install
+        - sudo npm cache clean
+        - sudo npm install -g cordova
+        - sudo npm cache clean -f
+        - sudo npm install -g n
+        - sudo n stable
+        - cordova build
+      script:
+        - sudo cordova prepare
+        - sudo cordova build ios --release
 notifications:
   email: false
  
