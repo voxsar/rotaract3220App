@@ -1,7 +1,7 @@
 language: android
 
 node_js:
-  - 5.5
+  - 6.9.1
 
 notifications:
   email: false
@@ -22,8 +22,10 @@ install:
   - sudo npm install
   - sudo npm cache clean
   - sudo npm install -g cordova
-  - echo y | android update sdk -u --filter android-22,android-23
+  #- echo y | android update sdk -u --filter android-22,android-23
   - ls
+  - node -v
+  - which node
   - sudo ln -s /usr/bin/nodejs /usr/bin/node
   - cordova build
   
