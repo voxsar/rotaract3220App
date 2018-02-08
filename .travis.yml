@@ -17,7 +17,7 @@ android:
   - build-tools-25.0.2
 
 install:
-  - npm install
+  - npm install -g npm@2
   - npm install -g cordova
   - echo y | android update sdk -u --filter android-22,android-23
 
