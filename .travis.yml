@@ -32,6 +32,7 @@ install:
   
 script:
   - node -v
+  - sudo npm install -g cordova
   - cordova prepare
   - cordova build android --release
   
