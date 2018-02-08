@@ -31,8 +31,6 @@ matrix:
       release:
         - exit 0
       before_deploy:
-        - git config --local user.name "voxsar"
-        - git config --local user.email "vo.x@outlook.com"
         - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
       deploy:
         provider: releases
@@ -42,7 +40,7 @@ matrix:
         keep-history: true
         on:
           branch: master
-          tags: false
+          tags: true
   
     #ios deployment test | works but sandboxed debug file cannot be used
     - language: objective-c
