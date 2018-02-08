@@ -6,7 +6,7 @@ node_js:
 notifications:
   email: false
 
-sudo: false
+sudo: true
 
 branches:
   only:
@@ -17,6 +17,7 @@ android:
   - build-tools-25.0.2
 
 install:
+  - apt-get install npm
   - npm install -g npm@2
   - npm install -g cordova
   - echo y | android update sdk -u --filter android-22,android-23
