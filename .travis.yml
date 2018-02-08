@@ -1,4 +1,4 @@
-language: node_js
+language: android
 
 node_js:
   - 5.5
@@ -19,13 +19,14 @@ android:
 install:
   - cd rotaract3220
   - sudo apt-get install npm
+  - sudo apt-get install nodejs
   - sudo npm install
   - sudo npm cache clean
   - sudo npm install -g cordova
   - echo y | android update sdk -u --filter android-22,android-23
   - ls
   - sudo ln -s /usr/bin/nodejs /usr/bin/node
-  - npm build
+  - cordova build
   
 script:
   - cordova prepare
