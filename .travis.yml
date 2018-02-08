@@ -1,35 +1,96 @@
-language: android
+sudo: false
+os: linux
+language: node_js
+node_js: '6'
+env:
+  matrix:
+      # chrome
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-battery-status
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-camera
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-console
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-device
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-device-motion
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-device-orientation
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-dialogs
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-file
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-globalization
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-inappbrowser
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-media
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-media-capture
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-network-information
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-screen-orientation
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-splashscreen
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-statusbar
+    - PLATFORM=browser-chrome PLUGIN=cordova-plugin-vibration
+    # firefox
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-battery-status
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-camera
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-console
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-device
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-device-motion
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-device-orientation
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-dialogs
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-file
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-globalization
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-inappbrowser
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-media
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-media-capture
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-network-information
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-screen-orientation
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-splashscreen
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-statusbar
+    - PLATFORM=browser-firefox PLUGIN=cordova-plugin-vibration
+    # safari
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-battery-status
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-camera
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-console
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-device
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-device-motion
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-device-orientation
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-dialogs
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-file
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-globalization
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-inappbrowser
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-media
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-media-capture
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-network-information
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-screen-orientation
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-splashscreen
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-statusbar
+    - PLATFORM=browser-safari PLUGIN=cordova-plugin-vibration
+    # edge
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-battery-status
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-camera
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-console
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-device
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-device-motion
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-device-orientation
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-dialogs
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-file
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-globalization
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-inappbrowser
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-media
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-media-capture
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-network-information
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-screen-orientation
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-splashscreen
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-statusbar
+    - PLATFORM=browser-edge PLUGIN=cordova-plugin-vibration
 
-node_js:
-  - 5.5
-
-notifications:
-  email: false
-
-sudo: true
-
-branches:
-  only:
-  - master
-  
-android:
-  components:
-  - build-tools-25.0.2
+before_install:
+  - node --version
 
 install:
-  - cd rotaract3220
-  - sudo apt-get install npm
-  - sudo npm install
-  - npm install -g cordova
-  - echo y | android update sdk -u --filter android-22,android-23
-
-before_script:
-  - cordova platform rm android
-  - cordova platform add android
+  - git clone --depth=1 --branch=master https://github.com/apache/cordova-paramedic && pushd cordova-paramedic && npm install && popd
+  - git clone --depth=1 --branch=master https://github.com/apache/cordova-coho && pushd cordova-coho/src && npm install && popd
+  - git clone --depth=1 --branch=master https://github.com/apache/$PLUGIN
+  # installing dev cordova
+  - cordova-coho/coho repo-clone -r tools
+  - cordova-coho/coho npm-link
+  - pushd cordova-cli && npm install && popd
+  - cordova-cli/bin/cordova -v
 
 script:
-  - cordova prepare
-  - cordova build android --release -- --ant
-  
-release:
-- exit 0  
+  - PLUGINS_ARG="--plugin $PLUGIN"
+  - CLI_ARG="--cli cordova-cli/bin/cordova"
+- node cordova-paramedic/main.js --config periodic/$PLATFORM $PLUGINS_ARG $CLI_ARG --shouldUseSauce --buildName travis-periodic-browser-$TRAVIS_JOB_NUMBER --verbose
