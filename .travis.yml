@@ -18,6 +18,7 @@ android:
     
 before_install:
   - sudo apt-get install npm
+  - cd rotaract3220
   - sudo npm install
   - sudo npm cache clean
   - sudo npm install -g cordova
@@ -27,11 +28,11 @@ install:
   - echo y | android update sdk -u --filter android-22,android-23
   - ls
   - sudo ln -s /usr/bin/nodejs /usr/bin/node
-  - cordova build
+  - /usr/bin/node/cordova build
   
 script:
   - cordova prepare
-  - cordova build android --release -- --ant
+  - cordova build android --release
   
 release:
 - exit 0
