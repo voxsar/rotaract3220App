@@ -17,8 +17,8 @@ matrix:
         #- cordova build
       script:
         - echo y | sudo cordova platform add ios --no-insight
-        - sudo cordova prepare
-        - sudo cordova build ios --release
+        - sudo cordova prepare --no-insight
+        - sudo cordova build ios --release --no-insight
 notifications:
   email: false
  
