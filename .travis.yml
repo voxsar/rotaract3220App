@@ -31,12 +31,15 @@ matrix:
       release:
         - exit 0
       deploy:
-        provider: pages
+        provider: releases
         skip-cleanup: true
-        github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+        github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure GITHUB_TOKEN
+        file: "/home/travis/build/voxsar/rotaract3220App/rotaract3220/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk"
         keep-history: true
+        skip_cleanup: true
         on:
           branch: master
+          tags: true
   
     #ios deployment test | works but sandboxed debug file cannot be used
     - language: objective-c
@@ -59,12 +62,15 @@ matrix:
       release:
         - exit 0
       deploy:
-        provider: pages
+        provider: releases
         skip-cleanup: true
-        github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+        github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure GITHUB_TOKEN
+        file: "/Users/travis/build/voxsar/rotaract3220App/rotaract3220/platforms/ios/build/emulator/Rotaract3220.app"
         keep-history: true
+        skip_cleanup: true
         on:
           branch: master
+          tags: true
 notifications:
   email: false
  
