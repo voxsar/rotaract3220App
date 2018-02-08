@@ -19,9 +19,12 @@ install:
   - sudo npm cache clean
   - sudo npm install -g cordova
   - echo y | android update sdk -u --filter android-22,android-23
+  - ls
 
 before_script:
-  #- cordova platform remove android
+  - ls
+  - cd rotaract3220
+  - cordova platform remove android
   - cordova platform add android
 
 script:
