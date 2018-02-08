@@ -1,32 +1,34 @@
 #lets see how this works
-notifications:
-  email: false
 matrix:
   include:
     - language: android
-    node_js:
-      - 6.9.1
-  sudo: true
-  branches:
-    only:
-      - master
-  android:
-    components:
-      - build-tools-26.0.2
-  install:
-    - sudo apt-get install npm
-    - sudo apt-get install node
-    - cd rotaract3220
-    - sudo npm install
-    - sudo npm cache clean
-    - sudo npm install -g cordova
-    - echo y | android update sdk -u --filter android-22,android-26
-    - sudo npm cache clean -f
-    - sudo npm install -g n
-    - sudo n stable
-    - cordova build
-  script:
-    - sudo cordova prepare
-    - sudo cordova build android --release
-  release:
-    - exit 0
+      jdk: oraclejdk8
+      node_js:
+        - 6.9.1
+      sudo: true
+      branches:
+        only:
+          - master
+      android:
+        components:
+          - build-tools-26.0.2
+      install:
+        - sudo apt-get install npm
+        - sudo apt-get install node
+        - cd rotaract3220
+        - sudo npm install
+        - sudo npm cache clean
+        - sudo npm install -g cordova
+        - echo y | android update sdk -u --filter android-22,android-26
+        - sudo npm cache clean -f
+        - sudo npm install -g n
+        - sudo n stable
+        - cordova build
+      script:
+        - sudo cordova prepare
+        - sudo cordova build android --release
+      release:
+        - exit 0
+notifications:
+  email: false
+ 
