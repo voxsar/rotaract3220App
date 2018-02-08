@@ -25,14 +25,16 @@ install:
   #- sudo npm install -g cordova
   #- echo y | android update sdk -u --filter android-22,android-23
   - ls
-  - node -v
+ #- node -v
   - which node
   - sudo ln -s /usr/bin/nodejs /usr/bin/node
-  - cordova build
+  # cordova build
   
 script:
+  - node -v
   - cordova prepare
   - cordova build android --release
+  
   
 release:
 - exit 0
