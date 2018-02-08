@@ -31,8 +31,11 @@ install:
   # cordova build
   
 script:
-  - node -v
+  - npm node -v
   - sudo npm install -g cordova
+  - sudo npm cache clean -f
+  - sudo npm install -g n
+  - sudo n stable
   - sudo cordova prepare
   - sudo cordova build android --release
   - sudo npm install -g yarn
