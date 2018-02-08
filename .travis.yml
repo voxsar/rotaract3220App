@@ -17,6 +17,7 @@ android:
   - build-tools-25.0.2
 
 install:
+  - cd rotaract3220
   - sudo apt-get install npm
   - sudo npm install
   - npm install -g cordova
