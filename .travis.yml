@@ -30,7 +30,13 @@ matrix:
         - sudo cordova build android --release
       release:
         - exit 0
-        
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+        keep-history: true
+        on:
+          branch: master
   
     #ios deployment test | works but sandboxed debug file cannot be used
     - language: objective-c
@@ -50,6 +56,15 @@ matrix:
       script:
         - echo y | sudo cordova platform add ios --no-insight
         - sudo cordova build ios --release --no-insight
+      release:
+        - exit 0
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+        keep-history: true
+        on:
+          branch: master
 notifications:
   email: false
  
