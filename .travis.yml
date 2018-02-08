@@ -14,7 +14,7 @@ branches:
   
 android:
   components:
-    - build-tools-25.0.2
+    - build-tools-26.0.2
     
 install:
   - sudo apt-get install npm
@@ -22,8 +22,8 @@ install:
   - cd rotaract3220
   - sudo npm install
   - sudo npm cache clean
-  #- sudo npm install -g cordova
-  #- echo y | android update sdk -u --filter android-22,android-23
+  - sudo npm install -g cordova
+  - echo y | android update sdk -u --filter android-22,android-26
   - ls
  #- node -v
   - which node
