@@ -24,6 +24,9 @@ install:
   - sudo npm cache clean
   - sudo npm install -g cordova
   - echo y | android update sdk -u --filter android-22,android-26
+  - sudo npm cache clean -f
+  - sudo npm install -g n
+  - sudo n stable
   - ls
  #- node -v
   - which node
@@ -31,15 +34,6 @@ install:
   # cordova build
   
 script:
-  - npm node -v
-  - sudo npm install -g cordova
-  - sudo npm cache clean -f
-  - sudo npm install -g n
-  - sudo n stable
-  - sudo cordova prepare
-  - sudo cordova build android --release
-  - sudo npm install -g yarn
-  - yarn install -g cordova
   - sudo cordova prepare
   - sudo cordova build android --release
   
