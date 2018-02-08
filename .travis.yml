@@ -21,7 +21,7 @@ install:
   - echo y | android update sdk -u --filter android-22,android-23
 
 before_script:
-  - cordova platform remove android
+  #- cordova platform remove android
   - cordova platform add android
 
 script:
