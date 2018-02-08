@@ -11,6 +11,10 @@ sudo: false
 branches:
   only:
   - master
+  
+android:
+  components:
+  - build-tools-25.0.2
 
 install:
   - npm install
