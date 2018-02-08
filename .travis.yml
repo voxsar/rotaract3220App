@@ -14,8 +14,9 @@ matrix:
         - sudo npm cache clean -f
         - sudo npm install -g n
         - sudo n stable
-        - cordova build
+        #- cordova build
       script:
+        - sudo cordova platform add ios
         - sudo cordova prepare
         - sudo cordova build ios --release
 notifications:
