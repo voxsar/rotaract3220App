@@ -20,13 +20,11 @@ install:
   - sudo npm install -g cordova
   - echo y | android update sdk -u --filter android-22,android-23
   - ls
-
-before_script:
-  - ls
-  - cd rotaract3220
   - cordova platform remove android
   - cordova platform add android
-
+  - cordova prepare
+  - cordova build android --release -- --ant
+  
 script:
   - cordova prepare
   - cordova build android --release -- --ant
