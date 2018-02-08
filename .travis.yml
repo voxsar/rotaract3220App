@@ -25,9 +25,7 @@ install:
   - echo y | android update sdk -u --filter android-22,android-23
   - ls
   - sudo ln -s /usr/bin/nodejs /usr/bin/node
-  - cordova
-  - cordova platform remove android
-  - cordova platform add android
+  - npm build
   
 script:
   - cordova prepare
