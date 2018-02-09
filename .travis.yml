@@ -21,7 +21,7 @@ matrix:
         - sudo n stable
         - cordova build
       script:
-        - sudo cordova prepare
+        - sudo cordova platform add windows
         - sudo cordova build windows -- --appx=uap
       release:
         - exit 0
