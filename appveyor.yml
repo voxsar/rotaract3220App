@@ -37,13 +37,16 @@ install:
   - cmd: cordova build windows -- --appx=uap
 build:
     project: C:\projects\rotaract3220app\rotaract3220\platforms\windows\CordovaApp.Windows10.jsproj
+test: off
 deploy:
   release: myproduct-v$(appveyor_build_version)
   description: 'Windows Universal App'
   provider: GitHub
   auth_token:
     secure: c/lXAytCIOqiw0TYXn2QtcrMzjhSWbE0wO9M2CJiOy2v2QoS2aMWB4zTV2Ud6xbB # your encrypted token from GitHub
-  artifact: /.*\.appx/            # upload all NuGet packages to release assets
+  artifact: 
+    - path: C:\projects\rotaract3220app\rotaract3220\platforms\windows\AppPackages\CordovaApp.Windows10_1.0.0.0_AnyCPU_Debug_Test\CordovaApp.Windows10_1.0.0.0_AnyCPU_Debug.appx
+    #/.*\.appx/            # upload all NuGet packages to release assets
   draft: true
   prerelease: false
   on:
