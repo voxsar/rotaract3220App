@@ -35,7 +35,7 @@ install:
   - cmd: npm install -g cordova
   - cmd: cordova platform add windows
   - cmd: cordova build windows -- --appx=uap
- build:
+build:
     project: C:\projects\rotaract3220app\rotaract3220\platforms\windows\CordovaApp.Windows10.jsproj
 deploy:
   release: myproduct-v$(appveyor_build_version)
