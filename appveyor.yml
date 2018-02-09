@@ -39,15 +39,15 @@ install:
 build:
     project: C:\projects\rotaract3220app\rotaract3220\platforms\windows\CordovaApp.Windows10.jsproj
 test: off
+artifacts:
+  - path: CordovaApp.Windows10_1.0.0.0_AnyCPU_Debug.appx
+    name: CordovaAPPTest
 deploy:
   release: myproduct-v$(appveyor_build_version)
   description: 'Windows Universal App'
   provider: GitHub
   auth_token:
     secure: c/lXAytCIOqiw0TYXn2QtcrMzjhSWbE0wO9M2CJiOy2v2QoS2aMWB4zTV2Ud6xbB # your encrypted token from GitHub
-  artifacts:
-    - path: CordovaApp.Windows10_1.0.0.0_AnyCPU_Debug.appx
-      name: CordovaAPPTest
     #/.*\.appx/            # upload all NuGet packages to release assets
   draft: true
   prerelease: false
