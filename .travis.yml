@@ -1,6 +1,31 @@
 #lets see how this works | creates to build jobs
 matrix:
   include:
+      #windows app 
+    - language: csharp
+      node_js:
+        - 6.9.1
+      sudo: true
+      branches:
+        only:
+          - master
+      install:
+        - sudo apt-get install npm
+        - sudo apt-get install node
+        - cd rotaract3220
+        - sudo npm install
+        - sudo npm cache clean
+        - sudo npm install -g cordova
+        - sudo npm cache clean -f
+        - sudo npm install -g n
+        - sudo n stable
+        - cordova build
+      script:
+        - sudo cordova prepare
+        - sudo cordova build windows -- --appx=uap
+      release:
+        - exit 0
+      
     #android app 
     - language: android
       jdk: oraclejdk8
