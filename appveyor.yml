@@ -46,7 +46,7 @@ deploy:
     secure: c/lXAytCIOqiw0TYXn2QtcrMzjhSWbE0wO9M2CJiOy2v2QoS2aMWB4zTV2Ud6xbB # your encrypted token from GitHub
   artifact: 
     - path:
-      secure: 5vA2yKaXJ4WF/mIfUU3IIE5wKU9/tW2SEIRn39gPxBkoFKPqX7XgwN3fQnrNNcfXozEA87l6lFcowzVXAkUbqjHmDzCuES3ZmMRIjYKCp7HUpSzFzPhRUQN5mqrA8fMhleTbWLdXC/QigRnqrgV9Dw6X4TvyYjjyx+so+D+RKBsdv0P1a7PjS3ydm4rQWf+2yj2nqVyRRxQx3EUT0QnEnLK3OpF1CNI+CPDvpY6LjPc=
+      secure: \rotaract3220\platforms\windows\AppPackages\CordovaApp.Windows10_1.0.0.0_AnyCPU_Debug_Test\CordovaApp.Windows10_1.0.0.0_AnyCPU_Debug.appx
     #/.*\.appx/            # upload all NuGet packages to release assets
   draft: true
   prerelease: false
