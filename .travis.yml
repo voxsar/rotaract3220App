@@ -1,3 +1,7 @@
+# safelist
+branches:
+  only:
+  - master
 #lets see how this works | creates to build jobs
 matrix:
   include:
