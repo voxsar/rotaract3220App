@@ -19,7 +19,12 @@ import App from '../components/app.vue';
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
- 
+import VueGoodTablePlugin from 'vue-good-table';
+
+// import the styles
+import 'vue-good-table/dist/vue-good-table.css'
+
+Vue.use(VueGoodTablePlugin);
 Vue.use(VueAxios, axios)
 // Init Framework7-Vue Plugin
 Framework7.use(Framework7Vue);
