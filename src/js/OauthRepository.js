@@ -7,6 +7,5 @@ export default axios.create({
 	baseURL,
 	headers: {
 		"Access-Control-Allow-Origin": "*",
-		"Authorization": "Bearer "+ storage.getItem("access_token")
 	}
 })

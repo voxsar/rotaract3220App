@@ -1,6 +1,11 @@
 
 import LoginPage from '../pages/login.vue';
 import DashboardPage from '../pages/dashboard.vue';
+import MainPage from '../pages/main.vue';
+import MembershipPage from  '../pages/membership.vue';
+import ClubsPage from '../pages/clubs.vue';
+import DiscoPage from '../pages/disco.vue';
+import CalendarPage from '../pages/calendar.vue';
 
 /*Home Pages*/
 import PersonalPage from '../pages/home/personnal.vue';
@@ -25,7 +30,7 @@ import NotFoundPage from '../pages/404.vue';
 var routes = [
 	{
 		path: '/',
-		component: LoginPage,
+		component: MainPage,
 		beforeEnter: function (routeTo, routeFrom, resolve, reject) {
 			// Router instance
 			// App instance
@@ -44,6 +49,22 @@ var routes = [
 		component: DashboardPage,
 	},
 	{
+		path: '/membership',
+		component: MembershipPage,
+	},
+	{
+		path: '/clubs',
+		component: ClubsPage,
+	},
+	{
+		path: '/disco',
+		component: DiscoPage,
+	},
+	{
+		path: '/calendar',
+		component: CalendarPage,
+	},
+	{
 		path: 'settings/about/',
 		component: AboutPage,
 	},
@@ -58,7 +79,6 @@ var routes = [
 	{
 		path: '/home/personnal/',
 		component: PersonalPage,
-		beforeEnter: 
 	},
 	{
 		path: '/home/club/',

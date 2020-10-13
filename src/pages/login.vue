@@ -21,6 +21,14 @@
 			<f7-list-button @click="signIn">Sign In</f7-list-button>
 			<f7-block-footer>Rotaract 3220 Sri Lanka and Maldives.<br>&copy; Rotaract Digital Communications Unit</f7-block-footer>
 		</f7-list>
+		<!-- Services Popup -->
+		<div class="popup popup-services">
+			<div class="content-block">
+				<p>Services</p>
+				<p><a href="#" class="close-popup">Close popup</a></p>
+				<p>Lorem ipsum dolor ...</p>
+			</div>
+		</div>
 	</f7-page>
 </template>
 
@@ -36,6 +44,7 @@
 		methods: {
 			signIn() {
 				var ti = this
+				console.log(ti);
 				LoginRep.post('',
 				{
 					grant_type: "password",
@@ -50,8 +59,7 @@
 					storage.setItem("access_token", t.data.access_token)
 					ti.$f7router.navigate('/dashboard')
 				}).catch(function(e){
-					console.log(e)
-
+					ti.$f7.dialog.alert('Use proper login credentialsl');
 				})
 			},
 		},

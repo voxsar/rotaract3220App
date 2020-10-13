@@ -34,7 +34,8 @@
     "framework7-vue": "^5.7.8",
     "template7": "^1.4.2",
     "vue": "^2.6.11",
-    "vue-axios": "^2.1.5"
+    "vue-axios": "^2.1.5",
+    "vue-good-table": "^2.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
